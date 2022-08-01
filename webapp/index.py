@@ -4,6 +4,7 @@ import numpy as np
 
 app_mode = st.sidebar.selectbox("Navigate to",['Home','Support','About us'])
 stress_score = 0
+sentences = ""
 
 if app_mode == 'Home':
     st.image("/Users/mac/Documents/GitHub/NatHacks2022/webapp/pictures/braincore_icons-02-e1495563799323.png")
