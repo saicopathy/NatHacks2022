@@ -1,6 +1,10 @@
 import streamlit as st
+import random
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
+from scipy.io import wavfile
+from scipy import signal
 ##import sentiment_analysis
 ##from sentiment_analysis import *
 
@@ -23,22 +27,29 @@ def parse_youtube_link(col1,col2,col3,linkArray):
     col2.video(linkArray[1])
     col3.video(linkArray[2])
 
-def predict_stress_score(sentences):
-    stress_count = 0
+## def predict_stress_score(sentences):
+    ##stress_count = 0
     ##prediction_array = predict(sentences)
     ##for prediction in prediction_array:
         ##if(prediction == 'stress'):
             ##stress_count += 1
-    return stress_count
+    ##return stress_count
 
 st.image("/Users/mac/Documents/GitHub/NatHacks2022/webapp/pictures/braincore_icons-02-e1495563799323.png")
 st.title("Neuro Journal")
 if app_mode == 'Home':
-    journal = st.text_area("Journal your feelings",placeholder="natHacks2022 is closing in 12 hours, but I haven't finished my code yet!")
-    clicked = st.button("Close journal")
+    journal_col, egg_col = st.columns([3,1.5])
+    journal = journal_col.text_area("How are you feeling?",placeholder="natHack2022 is ending in 12 hours, but I haven't finished my code!")
+    clicked = journal_col.button("Close journal")
+    info = egg_col.info("Press 'Start recording' when you have put on your headset")
+    record_started = egg_col.button("Start recording")
+    if (record_started == True):
+        egg_col.image("/Users/mac/Documents/GitHub/NatHacks2022/webapp/pictures/OpenBCI_EEGrunt_Test_Data_Channel_4_Alpha_EEG_Amplitude_Over_Time.png")
+
+
     if (clicked == True):
         sentences = journal.split(".")
-        stress_score = 1
+        stress_score = random.randint(1,5)
         if (stress_score < 3):
             st.markdown("It seems like you are stressed right now. We think these music playlists will help you de-stress.")
             tab1, tab2, tab3 = st.tabs(['Nature','Classical','lofi'])
@@ -49,4 +60,4 @@ if app_mode == 'Home':
             col1_3,col2_3,col3_3 = tab3.columns(3)
             parse_youtube_link(col1_3,col2_3,col3_3,lofi_music_playlist)
         else:
-            st.markdown("It seems like you are distressed right now. We recommend you contacting the nearest therapist in your area.")
+            st.markdown("It seems like you are having a hard time right now. We recommend you contacting the nearest therapist in your area.")

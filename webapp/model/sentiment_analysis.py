@@ -38,8 +38,8 @@ logging.disable(sys.maxsize)
 
 ## import dataset
 
-train = pd.read_csv('dataset/dreaddit-train.csv', encoding = "ISO-8859-1")
-test = pd.read_csv('dataset/dreaddit-test.csv', encoding = "ISO-8859-1")
+train = pd.read_csv('/Users/mac/Documents/GitHub/NatHacks2022/webapp/dreaddit-train.csv', encoding = "ISO-8859-1")
+test = pd.read_csv('/Users/mac/Documents/GitHub/NatHacks2022/webapp/dreaddit-test.csv', encoding = "ISO-8859-1")
 
 DATA_COLUMN = 'text'
 LABEL_COLUMN = 'label'
