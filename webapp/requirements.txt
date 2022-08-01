@@ -7,6 +7,6 @@ nltk
 tensorflow==1.15
 tensorflow_hub
 bert-tensorflow==1.0.1
-wordcloud
-bentoml
 tqdm
+spacy
+streamlit
