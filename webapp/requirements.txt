@@ -4,9 +4,9 @@ matplotlib==3.0.3
 scikit-learn
 gensim
 nltk
-tensorflow==2.4.0
+tensorflow==1.15
 tensorflow_hub
-bert-tensorflow
-wordcloud
-bentoml
+bert-tensorflow==1.0.1
 tqdm
+spacy
+streamlit
